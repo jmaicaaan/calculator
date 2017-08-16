@@ -1,0 +1,29 @@
+.calculator
+  md-card
+    md-card-title
+      md-card-title-text
+        span.md-headline Vertical action buttons
+    md-card-content
+      .screen
+        md-card
+          md-card-content
+            p test     
+      .keypad
+        md-card
+          md-card-content(layout="row")
+            .keypad-row
+              p 7
+              p 4
+              p 1
+            .keypad-row
+              p 8
+              p 5
+              p 2
+            .keypad-row
+              p 9
+              p 6
+              p 3
+
+    md-card-actions(layout='column', layout-align='start')
+      md-button Action 1
+      md-button Action 2
