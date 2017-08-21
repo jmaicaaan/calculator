@@ -7,23 +7,34 @@
       .screen
         md-card
           md-card-content
-            p test     
+            .result
+              p.md-title {{ $ctrl.result }}
+              p.md-caption {{ $ctrl.userInputs }}
       .keypad
         md-card
           md-card-content(layout="row")
             .keypad-row
-              p 7
-              p 4
-              p 1
+              p(ng-click="$ctrl.addUserInputs(7);") 7
+              p(ng-click="$ctrl.addUserInputs(4);") 4
+              p(ng-click="$ctrl.addUserInputs(1);") 1
             .keypad-row
-              p 8
-              p 5
-              p 2
+              p(ng-click="$ctrl.addUserInputs(8);") 8
+              p(ng-click="$ctrl.addUserInputs(5);") 5
+              p(ng-click="$ctrl.addUserInputs(2);") 2
             .keypad-row
-              p 9
-              p 6
-              p 3
-
-    md-card-actions(layout='column', layout-align='start')
+              p(ng-click="$ctrl.addUserInputs(9);") 9
+              p(ng-click="$ctrl.addUserInputs(6);") 6
+              p(ng-click="$ctrl.addUserInputs(3);") 3
+            .keypad-row
+              p(ng-click="$ctrl.addUserInputs('+');") +
+              p(ng-click="$ctrl.addUserInputs('-');") -
+              p(ng-click="$ctrl.addUserInputs('*');") *
+              p(ng-click="$ctrl.addUserInputs('/');") /
+            .keypad-row
+              .button-container(layout="column")
+                md-button.md-button.md-primary(ng-click="$ctrl.clearUserInputs(true);") Reset
+                md-button.md-button.md-primary(ng-click="$ctrl.clearUserInputs(false);") Remove last                
+                md-button.md-button.md-primary.md-raised(ng-click="$ctrl.getResult();") Enter
+    md-card-actions(layout="column", layout-align="start")
       md-button Action 1
       md-button Action 2

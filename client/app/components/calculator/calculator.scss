@@ -4,10 +4,19 @@
   .screen {
     border: 1px solid black;
     position: relative;
-    background-color: #fefefe
+    background-color: #fefefe;
+    .result {
+      text-align: right;
+    }
   }
   .keypad {
     border: 1px solid red;
     position: relative;
+    p {
+      margin: 20px;
+    }
+    p:hover {
+      cursor: pointer;
+    }
   }
 }
