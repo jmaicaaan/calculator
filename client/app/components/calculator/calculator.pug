@@ -26,10 +26,10 @@
               p(ng-click="$ctrl.addUserInputs(6);") 6
               p(ng-click="$ctrl.addUserInputs(3);") 3
             .keypad-row
-              p(ng-click="$ctrl.addUserInputs('+');") +
-              p(ng-click="$ctrl.addUserInputs('-');") -
-              p(ng-click="$ctrl.addUserInputs('*');") *
-              p(ng-click="$ctrl.addUserInputs('/');") /
+              p(ng-click="$ctrl.addUserInputs('add');") +
+              p(ng-click="$ctrl.addUserInputs('subtract');") -
+              p(ng-click="$ctrl.addUserInputs('multiply');") *
+              p(ng-click="$ctrl.addUserInputs('divide');") /
             .keypad-row
               .button-container(layout="column")
                 md-button.md-button.md-primary(ng-click="$ctrl.clearUserInputs(true);") Reset

@@ -1,7 +1,7 @@
 class CalculatorController {
   constructor($state, $stateParams) {
     "ngInject";
-    this.result = 0;
+    this.result = '0';
     this.userInputs = [];
   }
 
@@ -9,16 +9,40 @@ class CalculatorController {
     this.result += 5;
   };
 
-  addUserInputs = (char) => {
-    this.userInputs.push(char);
+  addUserInputs = (userInput) => {
+    let temp = this.result;
+    let operator = this.getOperatorSymbol(userInput);
+    if (operator) {
+      this.userInputs.push(temp);
+      this.userInputs.push(operator);
+      temp = '0';
+    } else {
+      if (temp === '0') temp = ''; // mimics the display as zero (0)
+      temp += userInput;
+    }
+    this.result = temp;
   };
   
   clearUserInputs = (isReset) => {
     if (isReset) {
       this.userInputs = [];
+      this.result = '0';
     } else {
       this.userInputs.pop();
-    }    
+    }
+  };
+
+  getOperatorSymbol = (operatorName) => {
+    if (operatorName) {
+      let operator = {
+        add: '+',
+        subtract: '-',
+        multiply: '*',
+        divide: '/'
+      };
+      return operator[operatorName];
+    }
+    return;
   };
 }
 
