@@ -8,6 +8,7 @@ import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
 import ngLoadingBar from 'angular-loading-bar';
+import 'angular-hotkeys';
 import 'normalize.css';
 import 'animate.css';
 
@@ -19,7 +20,8 @@ angular.module('app', [
     ngLoadingBar,
     uiRouter,
     Common,
-    Components
+    Components,
+    'cfp.hotkeys'
   ])
   .config(($locationProvider) => {
     "ngInject";

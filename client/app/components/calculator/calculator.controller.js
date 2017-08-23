@@ -1,8 +1,10 @@
 class CalculatorController {
-  constructor($state, $stateParams) {
+  constructor($state, $stateParams, hotkeys) {
     "ngInject";
+    this.hotkeys = hotkeys;
     this.result = '0';
     this.userInputs = [];
+    this.registerNumberBindings();
   }
 
   getResult = () => {
@@ -43,6 +45,18 @@ class CalculatorController {
       return operator[operatorName];
     }
     return;
+  };
+
+  registerNumberBindings = () => {
+    this.hotkeys.add({
+      combo: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+      callback: (event, hotkey) => {
+        if (event && event.key) {
+          let num = +event.key;
+          this.addUserInputs(num);
+        }
+      }
+    });
   };
 }
 
