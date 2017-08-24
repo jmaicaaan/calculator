@@ -8,7 +8,10 @@ class CalculatorController {
   }
 
   getResult = () => {
-    this.result += 5;
+    this.userInputs.push(this.result);
+    let infixNotation = this.userInputs.toString().replace(/[,]/g, '');
+    this.userInputs = [];
+    this.result = eval(infixNotation);
   };
 
   addUserInputs = (userInput) => {
