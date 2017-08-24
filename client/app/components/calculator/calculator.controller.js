@@ -4,7 +4,7 @@ class CalculatorController {
     this.hotkeys = hotkeys;
     this.result = '0';
     this.userInputs = [];
-    this.registerNumberBindings();
+    this.registerKeyBindings();
   }
 
   getResult = () => {
@@ -37,6 +37,13 @@ class CalculatorController {
     }
   };
 
+  removeLastDigit = () => {
+    this.result = this.result.slice(0, - 1);
+    if (typeof this.result === 'string' && this.result.length <= 0) {
+      this.result = '0';
+    }
+  };
+
   getOperatorSymbol = (operatorName) => {
     if (operatorName) {
       let operator = {
@@ -50,7 +57,7 @@ class CalculatorController {
     return;
   };
 
-  registerNumberBindings = () => {
+  registerKeyBindings = () => {
     this.hotkeys.add({
       combo: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
       callback: (event, hotkey) => {
@@ -58,6 +65,33 @@ class CalculatorController {
           let num = +event.key;
           this.addUserInputs(num);
         }
+      }
+    });
+    this.hotkeys.add({
+      combo: ['+', '-', '*', '/'],
+      callback: (event, hotkey) => {
+        if (event && event.key) {
+          let operator = event.key;
+          this.addUserInputs(operator);
+        }
+      }
+    });
+    this.hotkeys.add({
+      combo: ['enter'],
+      callback: (event, hotkey) => {
+        this.getResult();
+      }
+    });
+    this.hotkeys.add({
+      combo: ['esc'],
+      callback: (event, hotkey) => {
+        this.clearUserInputs(true);
+      }
+    });
+    this.hotkeys.add({
+      combo: ['backspace'],
+      callback: (event, hotkey) => {
+        this.removeLastDigit();
       }
     });
   };
