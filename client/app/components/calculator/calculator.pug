@@ -9,7 +9,7 @@
           md-card-content
             .result
               p.md-title {{ $ctrl.result }}
-              p.md-caption {{ $ctrl.userInputs }}
+              p.md-caption(pretty-array pretty-array-item="$ctrl.userInputs")
       .keypad
         md-card
           md-card-content(layout="row")
