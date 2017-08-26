@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-$primaryColor:   #0277bd;
-$accentColor:    #1de9b6;
+$primaryColor:   #536dfe;
+$accentColor:    #e91e63;
 $bgColor:        #efefef;
 $darkBgColor:    #263238;
 $lightBgColor:   #37474f;
@@ -14,4 +14,7 @@ body {
    // so setting top-level font-size to 62.5%
    // scales 1rem to equal 10px.
    font: 16px 'Roboto', sans-serif;
+   background: #667db6;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

@@ -1,8 +1,5 @@
 .calculator
   md-card
-    md-card-title
-      md-card-title-text
-        span.md-headline Vertical action buttons
     md-card-content
       .screen
         md-card
@@ -13,29 +10,50 @@
       .keypad
         md-card
           md-card-content(layout="row")
-            .keypad-row
-              p(ng-click="$ctrl.addUserInputs(7);") 7
-              p(ng-click="$ctrl.addUserInputs(4);") 4
-              p(ng-click="$ctrl.addUserInputs(1);") 1
-            .keypad-row
-              p(ng-click="$ctrl.addUserInputs(8);") 8
-              p(ng-click="$ctrl.addUserInputs(5);") 5
-              p(ng-click="$ctrl.addUserInputs(2);") 2
-              p(ng-click="$ctrl.addUserInputs(0);") 0
-            .keypad-row
-              p(ng-click="$ctrl.addUserInputs(9);") 9
-              p(ng-click="$ctrl.addUserInputs(6);") 6
-              p(ng-click="$ctrl.addUserInputs(3);") 3
-            .keypad-row
-              p(ng-click="$ctrl.addUserInputs('add');") +
-              p(ng-click="$ctrl.addUserInputs('subtract');") -
-              p(ng-click="$ctrl.addUserInputs('multiply');") *
-              p(ng-click="$ctrl.addUserInputs('divide');") /
-            .keypad-row
+            .keypad-row(layout="column")
+              md-button.md-raised.md-fab.md-mini.keypad-option(layout-wrap, ng-click="$ctrl.clearUserInputs(true);") 
+                span AC
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(7);") 
+                span 7
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(4);")
+                span 4
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(1);")
+                span 1
+              md-button.md-raised.md-fab.md-mini.keypad-option(layout-wrap) 
+                span ()
+            .keypad-row(layout="column")
+              md-button.md-raised.md-fab.md-mini.keypad-option(layout-wrap) 
+                span.md-primary %
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(8);") 
+                span 8
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(5);") 
+                span 5
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(2);") 
+                span 2
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(0);") 
+                span 0
+            .keypad-row(layout="column") 
+              md-button.md-raised.md-fab.md-mini.keypad-option(layout-wrap) 
+                span +-
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(9);") 
+                span 9
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(6);") 
+                span 6
+              md-button.md-raised.md-fab.md-mini.keypad-number(layout-wrap ng-click="$ctrl.addUserInputs(3);") 
+                span 3
+              md-button.md-raised.md-fab.md-mini.keypad-option(layout-wrap ng-click="$ctrl.addUserInputs('.');") 
+                span .
+            .keypad-row(layout="column")
+              md-button.md-fab.md-mini(layout-wrap, ng-click="$ctrl.addUserInputs('add');") +
+              md-button.md-fab.md-mini(layout-wrap, ng-click="$ctrl.addUserInputs('subtract');") -
+              md-button.md-fab.md-mini(layout-wrap, ng-click="$ctrl.addUserInputs('multiply');") *
+              md-button.md-fab.md-mini(layout-wrap, ng-click="$ctrl.addUserInputs('divide');") /
+              md-button.md-primary.md-fab.md-mini(layout-wrap, ng-click="$ctrl.getResult();") =
+            //.keypad-row
               .button-container(layout="column")
-                md-button.md-button.md-primary(ng-click="$ctrl.clearUserInputs(true);") Reset
-                md-button.md-button.md-primary(ng-click="$ctrl.clearUserInputs(false);") Remove last                
-                md-button.md-button.md-primary.md-raised(ng-click="$ctrl.getResult();") Enter
-    md-card-actions(layout="column", layout-align="start")
+                md-button.md-button.md-primary(layout-wrap ng-click="$ctrl.clearUserInputs(true);") Reset
+                md-button.md-button.md-primary(layout-wrap ng-click="$ctrl.clearUserInputs(false);") Remove last                
+                md-button.md-button.md-primary.md-raised(layout-wrap ng-click="$ctrl.getResult();") Enter
+    //md-card-actions(layout="column", layout-align="start")
       md-button Action 1
       md-button Action 2

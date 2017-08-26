@@ -1,8 +1,7 @@
+@import "../../common/common";
 .calculator {
-  color: red;
   display: flex;
   .screen {
-    border: 1px solid black;
     position: relative;
     background-color: #fefefe;
     .result {
@@ -10,13 +9,24 @@
     }
   }
   .keypad {
-    border: 1px solid red;
     position: relative;
     p {
       margin: 20px;
     }
     p:hover {
       cursor: pointer;
+    }
+    .keypad-row {
+      .keypad-number {
+        span {
+          color: $primaryColor;
+        }
+      }
+      .keypad-option {
+        span {
+          color: $accentColor;
+        }
+      }
     }
   }
 }
