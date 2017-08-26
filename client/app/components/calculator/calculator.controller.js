@@ -4,6 +4,7 @@ class CalculatorController {
     this.hotkeys = hotkeys;
     this.result = '0';
     this.userInputs = [];
+    this.operators = ['+', '-', '*', '/'];
     this.registerKeyBindings();
   }
 
@@ -44,15 +45,19 @@ class CalculatorController {
     }
   };
 
-  getOperatorSymbol = (operatorName) => {
-    if (operatorName) {
-      let operator = {
+  getOperatorSymbol = (operator) => {
+    if (operator) {
+      if (operator.length === 1 && this.operators.indexOf(operator) > -1) {
+        //if length is 1 means it is a symbol
+        return operator;
+      }
+      let operator_map = {
         add: '+',
         subtract: '-',
         multiply: '*',
         divide: '/'
       };
-      return operator[operatorName];
+      return operator_map[operator];
     }
     return;
   };
