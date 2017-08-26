@@ -5,6 +5,12 @@
     position: relative;
     background-color: #fefefe;
     .result {
+      p.md-title {
+        color: $primaryColor;
+      }
+      p.md-caption {
+        color: $lightBgColor;
+      }
       text-align: right;
     }
   }
